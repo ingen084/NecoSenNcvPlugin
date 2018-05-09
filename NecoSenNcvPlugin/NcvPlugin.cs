@@ -22,6 +22,8 @@ namespace NecoSenNcvPlugin
 
 		public void AutoRun()
 		{
+			ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+
 			var pluginsMenu = Host.MainForm.MainMenuStrip.Items.OfType<ToolStripMenuItem>().First(mi => mi.Text == "プラグイン(&P)");
 			var pluginMenu = pluginsMenu.DropDownItems.OfType<ToolStripMenuItem>().First(mi => mi.Text == Name);
 			using (var reader = new XmlTextReader("https://ingen084.github.io/versioncheck/NECOSenNcvPlugin.xml"))
